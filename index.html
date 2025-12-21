@@ -20,7 +20,7 @@
         document.getElementById("status").innerText = "Łączenie z serwerem...";
         fetch("https://stsrv.onrender.com/")
         .then(res => res.text())
-        .then(text => document.getElementById("status").innerText = text)
+        .then(text => document.getElementById("status").innerText = "status serwera: " + text)
         .catch(err => {console.error(err);
                         document.getElementById("status").innerText = "Błąd połączenia z serwerem";
                       });
