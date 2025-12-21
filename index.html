@@ -5,6 +5,8 @@
     <title>C++ Backend</title>
 </head>
 <body>
+    <p id="status"></p>
+
     <h1>Kalkulator (C++ backend)</h1>
 
     <input type="number" id="a" placeholder="Liczba A">
@@ -14,6 +16,16 @@
     <pre id="result"></pre>
 
     <script>
+        window.onload = function() {
+        document.getElementById("status").innerText = "Łączenie z serwerem...";
+        fetch("https://stsrv.onrender.com/")
+        .then(res => res.text())
+        .then(text => document.getElementById("status").innerText = text)
+        .catch(err => {console.error(err);
+                        document.getElementById("status").innerText = "Błąd połączenia z serwerem";
+                      });
+            
+        };
         function send() {
             const a = document.getElementById("a").value;
             const b = document.getElementById("b").value;
