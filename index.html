@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>C++ Backend</title>
+</head>
+<body>
+    <h1>Kalkulator (C++ backend)</h1>
+
+    <input type="number" id="a" placeholder="Liczba A">
+    <input type="number" id="b" placeholder="Liczba B">
+    <button onclick="send()">Oblicz</button>
+
+    <pre id="result"></pre>
+
+    <script>
+        function send() {
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+
+            fetch("https://stsrv.onrender.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: `a=${a}&b=${b}`
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("result").innerText =
+                    "Suma: " + data.suma + "\nIloczyn: " + data.iloczyn;
+            });
+        }
+    </script>
+</body>
+</html>
