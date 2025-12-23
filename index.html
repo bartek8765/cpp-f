@@ -18,7 +18,7 @@
     <script>
         window.onload = function() {
         document.getElementById("status").innerText = "Łączenie z serwerem...";
-        fetch("https://stsrv.onrender.com/")
+        fetch("https://cpp-b.onrender.com/")
         .then(res => res.text())
         .then(text => document.getElementById("status").innerText = "status serwera: " + text)
         .catch(err => {console.error(err);
