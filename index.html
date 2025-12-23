@@ -7,11 +7,11 @@
 <body>
     <p id="status"></p>
 
-    <h1>Kalkulator (C++ backend)</h1>
+    <h1>Logowanie / Rejestracja</h1>
 
-    <input type="number" id="a" placeholder="Liczba A">
-    <input type="number" id="b" placeholder="Liczba B">
-    <button onclick="send()">Oblicz</button>
+    <input type="text" id="log" placeholder="Login">
+    <input type="password" id="pass" placeholder="haslo">
+    <button onclick="zaloguj()">zaloguj</button>
 
     <pre id="result"></pre>
 
@@ -26,6 +26,7 @@
                       });
             
         };
+
         function send() {
             const a = document.getElementById("a").value;
             const b = document.getElementById("b").value;
@@ -45,7 +46,30 @@
                 document.getElementById("result").innerText =
                     "Suma: " + data.suma + "\nIloczyn: " + data.iloczyn;
             })
-        }
+        };
+
+
+	function zaloguj() {
+            const log = document.getElementById("log").value;
+            const pass = document.getElementById("pass").value;
+
+            fetch("https://cpp-b.onrender.com/login", {
+                method: "POST",
+                headers: {
+                      "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    log: log,
+                    pass: pass
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("result").innerText =
+                   data.komunikat;
+            })
+        };
+
     </script>
 </body>
 </html>
