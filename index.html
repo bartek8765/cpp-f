@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+	<link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <title>C++ Backend</title>
+    <title>stsrv</title>
 </head>
 <body>
     <p id="status"></p>
@@ -12,6 +13,7 @@
     <input type="text" id="log" placeholder="Login">
     <input type="password" id="pass" placeholder="haslo">
     <button onclick="zaloguj()">zaloguj</button>
+    <button onclick="zarejestruj()">zarejestruj</button>
 
     <pre id="result"></pre>
 
@@ -68,7 +70,35 @@
                 document.getElementById("result").innerText =
                    data.komunikat;
             })
+	document.getElementById("log").value="";
+	document.getElementById("pass").value="";
         };
+
+
+	function zarejestruj() {
+            const log = document.getElementById("log").value;
+            const pass = document.getElementById("pass").value;
+
+            fetch("https://cpp-b.onrender.com/zarejestruj", {
+                method: "POST",
+                headers: {
+                      "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    log: log,
+                    pass: pass
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("result").innerText =
+                   data.komunikat;
+            })
+	document.getElementById("log").value="";
+	document.getElementById("pass").value="";
+        };
+
+
 
     </script>
 </body>
