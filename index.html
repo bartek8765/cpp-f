@@ -18,6 +18,7 @@
     <button onclick="zarejestruj()">zarejestruj</button>
 
     <pre id="result"></pre>
+	<div id="gallery"></div>
 	</div>
     <script>
         window.onload = function() {
@@ -56,6 +57,7 @@
 	function zaloguj() {
             const log = document.getElementById("log").value;
             const pass = document.getElementById("pass").value;
+			const gallery = document.getElementById("gallery");
 
             fetch("https://cpp-b.onrender.com/login", {
                 method: "POST",
@@ -69,9 +71,14 @@
             })
             .then(res => res.json())
             .then(data => {
-                document.getElementById("result").innerText =
-                   data.komunikat;
-            })
+                document.getElementById("result").innerText = data.komunikat;
+				gallery.innerHTML = "";
+				linki = data.linki;
+				linki.forEach(url => { 
+					const img = document.createElement("img");
+        			img.src = url;
+					gallery.appendChild(img);
+				 })
 	document.getElementById("log").value="";
 	document.getElementById("pass").value="";
         };
