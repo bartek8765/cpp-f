@@ -73,7 +73,7 @@
             .then(data => {
                 document.getElementById("result").innerText = data.komunikat;
 				gallery.innerHTML = "";
-				linki = data.linki;
+				const linki = data.linki;
 				linki.forEach(url => { 
 					const img = document.createElement("img");
         			img.src = url;
