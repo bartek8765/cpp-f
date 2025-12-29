@@ -44,6 +44,17 @@
         .catch(err => {console.error(err);
                         document.getElementById("status").innerText = "Błąd połączenia z serwerem";
                       });
+		const login = localStorage.getItem("login");
+		const pass = localStorage.getItem("password");
+		if(login && pass){
+
+			document.getElementById("log").value=login;
+			document.getElementById("pass").value=pass;
+			zaloguj();
+		
+		}
+			
+		}
             
         };
 
@@ -88,6 +99,9 @@
             .then(res => res.json())
             .then(data => {
                 document.getElementById("result").innerText = data.komunikat;
+				if (!data.komunikat.startsWith("Nieprawidłowy")) {
+        			localStorage.setItem("password", pass);
+     				localStorage.setItem("login", log);
 				if(data.admin){
 				document.getElementById("admin_panel").style.display = "block";
 				}
