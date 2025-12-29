@@ -86,6 +86,8 @@
             const log = document.getElementById("log").value;
             const pass = document.getElementById("pass").value;
 			const gallery = document.getElementById("gallery");
+			document.getElementById("log").value="";
+			document.getElementById("pass").value="";
 
             fetch("https://cpp-b.onrender.com/login", {
                 method: "POST",
@@ -113,8 +115,7 @@
         			img.src = url;
 					gallery.appendChild(img);
 				 });
-	document.getElementById("log").value="";
-	document.getElementById("pass").value="";
+	
         }
 	})
 	};
