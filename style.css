@@ -141,8 +141,8 @@ pre {
     white-space: pre-wrap;
 }
 
-#znajomi p {
-    margin-bottom: 10px;
+#znajomi li {
+    margin-bottom: 8px;
 }
 
 .hidden {
