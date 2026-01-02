@@ -26,7 +26,7 @@
 
     <pre id="result"></pre>
 	<div id="admin_panel" class="hidden">
-		<input type="text" id="admin_url" placeholder="URL">
+		<input type="text" id="admin_url" placeholder="URL, pusty = wszytko">
 		<input type="text" id="admin_login" placeholder="Login">
 		<button onclick="admin_add()">Dodaj</button>
 		<button onclick="admin_remove()">Usuń</button>
@@ -151,6 +151,30 @@
             const url = document.getElementById("admin_url").value;
 
             fetch("https://cpp-b.onrender.com/admin_add", {
+                method: "POST",
+                headers: {
+                      "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    log: log,
+                    url: url
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("result").innerText =
+                   data.komunikat;
+            })
+
+
+	}
+
+		function admin_remove() {
+
+		const log = document.getElementById("admin_login").value;
+        const url = document.getElementById("admin_url").value;
+
+            fetch("https://cpp-b.onrender.com/admin_remove", {
                 method: "POST",
                 headers: {
                       "Content-Type": "application/json"
