@@ -3,8 +3,51 @@
     font-family: "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
-.selected{
+nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    background-color: #1e1e2f;
+    padding: 12px 20px;
+    border-radius: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a {
+    color: #cfd2ff;
+    text-decoration: none;
+    font-size: 16px;
+
+    padding: 6px 12px;
+    border-radius: 6px;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* hover */
+nav a:hover {
+    background-color: #34345e;
+    color: #ffffff;
+}
+
+/* aktualna strona */
+nav a.selected {
+    background-color: #5a67ff;
+    color: #ffffff;
     font-weight: bold;
+}
+
+/* link wylogowania */
+nav a:last-child {
+    margin-left: auto;
+    background-color: #ff4d4d;
+    color: white;
+}
+
+nav a:last-child:hover {
+    background-color: #e63c3c;
 }
 
 
