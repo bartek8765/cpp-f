@@ -75,8 +75,8 @@ const zaproszenia = document.getElementById("zaproszenia");
 function zapros(){
 
 const login_znajomego = document.getElementById("znajomy_login").value;
-const login = localStorage.getItem("login"),
-const pass = localStorage.getItem("password")
+const login = localStorage.getItem("login");
+const pass = localStorage.getItem("password");
 
 	if(login && pass){
 
