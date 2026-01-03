@@ -145,6 +145,38 @@ pre {
     margin-bottom: 8px;
 }
 
+#zaproszenia li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-small {
+    width: auto;
+    padding: 4px 10px;
+    margin: 0 4px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    transform: none;
+}
+
+/* kolory */
+.btn-accept {
+    background: #22c55e;
+    color: #020617;
+}
+
+.btn-remove {
+    background: #ef4444;
+    color: #020617;
+}
+
+/* bez podnoszenia */
+.btn-small:hover {
+    transform: none;
+}
+
+
 .hidden {
     display: none;
 }
