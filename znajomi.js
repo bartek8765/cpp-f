@@ -58,7 +58,13 @@ const zaproszenia = document.getElementById("zaproszenia");
 				const lista_zaproszen = data.lista_zaproszen || [];
 				lista_zaproszen.forEach(zaproszenie => { 
 					const li = document.createElement("li");
-        			li.textContent = zaproszenie;
+        			li.textContent = zaproszenie + " ";
+
+					const btn = document.createElement("button");
+					btn.textContent = "Akceptuj";
+					btn.onclick = () => akceptujZaproszenie(zaproszenie);
+					
+					li.appendChild(btn);
 					zaproszenia.appendChild(li);
 				 });
 	
