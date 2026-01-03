@@ -50,6 +50,13 @@ const zaproszenia = document.getElementById("zaproszenia");
 				lista_znajomych.forEach(znajomy => { 
 					const li = document.createElement("li");
         			li.textContent = znajomy;
+					const btn = document.createElement("button");
+					btn.textContent = "Usuń znajomego";
+					btn.onclick = () => usunZaproszenie(znajomy);
+					btn.classList.add("btn-small", "btn-remove");
+
+
+					li.appendChild(btn);
 					znajomi.appendChild(li);
 				 });
 
@@ -82,6 +89,71 @@ const zaproszenia = document.getElementById("zaproszenia");
 
 	
 };
+
+
+
+
+function akceptujZaproszenie(nick){
+const login = localStorage.getItem("login");
+const pass = localStorage.getItem("password");
+
+
+
+	fetch("https://cpp-b.onrender.com/akceptuj_zaproszenie", {
+                method: "POST",
+                headers: {
+                      "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    log: login,
+                    pass: pass,
+					nick: nick
+                })
+            }).then(res => res.json())
+            .then(data => {
+                document.getElementById("result").innerText =
+                   data.komunikat;
+            })
+
+
+
+	
+	
+};
+
+
+
+function usunZaproszenie(nick){
+const login = localStorage.getItem("login");
+const pass = localStorage.getItem("password");
+
+
+
+	fetch("https://cpp-b.onrender.com/usun_zaproszenie", {
+                method: "POST",
+                headers: {
+                      "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    log: login,
+                    pass: pass,
+					nick: nick
+                })
+            }).then(res => res.json())
+            .then(data => {
+                document.getElementById("result").innerText =
+                   data.komunikat;
+            })
+
+
+
+	
+	
+};
+
+
+
+
 
 
 
