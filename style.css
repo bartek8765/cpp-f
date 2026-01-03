@@ -146,6 +146,7 @@ pre {
 }
 
 #zaproszenia li {
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -158,6 +159,7 @@ pre {
     font-size: 0.8rem;
     border-radius: 6px;
     transform: none;
+    
 }
 
 /* kolory */
