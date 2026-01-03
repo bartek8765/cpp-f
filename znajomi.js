@@ -63,8 +63,13 @@ const zaproszenia = document.getElementById("zaproszenia");
 					const btn = document.createElement("button");
 					btn.textContent = "Akceptuj";
 					btn.onclick = () => akceptujZaproszenie(zaproszenie);
+
+					const btn2 = document.createElement("button");
+					btn2.textContent = "Usuń";
+					btn2.onclick = () => usunZaproszenie(zaproszenie);
 					
 					li.appendChild(btn);
+					li.appendChild(btn2);
 					zaproszenia.appendChild(li);
 				 });
 	
