@@ -73,7 +73,7 @@ const pass = localStorage.getItem("password")
 
 		
 
-			fetch("https://cpp-b.onrender.com/wyswietl_znajomych", {
+			fetch("https://cpp-b.onrender.com/zapros", {
                 method: "POST",
                 headers: {
                       "Content-Type": "application/json"
