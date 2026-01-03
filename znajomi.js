@@ -67,7 +67,9 @@ const zaproszenia = document.getElementById("zaproszenia");
 					const btn2 = document.createElement("button");
 					btn2.textContent = "Usuń";
 					btn2.onclick = () => usunZaproszenie(zaproszenie);
-					
+
+					btn.classList.add("btn-small", "btn-accept");
+					btn2.classList.add("btn-small", "btn-remove");
 					li.appendChild(btn);
 					li.appendChild(btn2);
 					zaproszenia.appendChild(li);
