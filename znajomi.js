@@ -28,6 +28,7 @@
 
 function wyswietl_znajomych() {
 const znajomi = document.getElementById("znajomi");
+const zaproszenia = document.getElementById("zaproszenia");
 
 
 
@@ -50,6 +51,15 @@ const znajomi = document.getElementById("znajomi");
 					const li = document.createElement("li");
         			li.textContent = znajomy;
 					znajomi.appendChild(li);
+				 });
+
+
+				zaproszenia.innerHTML = "";
+				const lista_zaproszen = data.lista_zaproszen || [];
+				lista_zaproszen.forEach(zaproszenie => { 
+					const li = document.createElement("li");
+        			li.textContent = zaproszenie;
+					zaproszenia.appendChild(li);
 				 });
 	
         
