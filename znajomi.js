@@ -57,6 +57,44 @@ const znajomi = document.getElementById("znajomi");
 
 
 
+	
+};
+
+
+
+function zapros(){
+
+const login_znajomego = document.getElementById("znajomy_login").value;
+const login = localStorage.getItem("login"),
+const pass = localStorage.getItem("password")
+
+	if(login && pass){
+
+
+		
+
+			fetch("https://cpp-b.onrender.com/wyswietl_znajomych", {
+                method: "POST",
+                headers: {
+                      "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    log: login,
+                    pass: pass,
+					login_znajomego: login_znajomego
+                })
+            }).then(res => res.json())
+            .then(data => {
+                document.getElementById("result").innerText =
+                   data.komunikat;
+            })
+
+
+
+
+		
+	}
+
 
 	
 };
