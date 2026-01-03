@@ -117,7 +117,7 @@ const pass = localStorage.getItem("password");
 
 
 
-	location.reload();
+	
 	
 };
 
@@ -147,7 +147,7 @@ const pass = localStorage.getItem("password");
 
 
 
-	location.reload();
+	
 	
 };
 
