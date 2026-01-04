@@ -69,6 +69,7 @@ const znajomi = document.getElementById("znajomi");
 function otworz_chat(log_z){
 	document.getElementById("wiadomosci").style.display = "block";
 	document.getElementById("wysylanie").style.display = "block";
+	document.getElementById("chat").style.display = "block";
 	localStorage.setItem("log_z", log_z);
 	const wiadomosci = document.getElementById("wiadomosci");
 
