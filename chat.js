@@ -48,7 +48,7 @@ const znajomi = document.getElementById("znajomi");
         			li.textContent = znajomy;
 					const btn = document.createElement("button");
 					btn.textContent = "Otwórz chat";
-					btn.onclick = () => otworz_Chat(znajomy);
+					btn.onclick = () => otworz_chat(znajomy);
 					btn.classList.add("btn-small", "btn-accept");
 
 
