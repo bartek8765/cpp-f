@@ -113,7 +113,7 @@ function otworz_chat(log_z){
         			
 					
 					wiadomosci.appendChild(li);
-					wiadomosci.appendChild(document.createElement("br"));
+					
 				 });
 
 	
