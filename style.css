@@ -141,6 +141,10 @@ pre {
     white-space: pre-wrap;
 }
 
+#wiadomosci li {
+    margin-bottom: 12px;
+}
+
 #znajomi li {
     margin-bottom: 8px;
 }
