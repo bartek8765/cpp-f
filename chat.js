@@ -138,8 +138,39 @@ function formatDate(iso) {
         hour: "2-digit",
         minute: "2-digit"
     });
-}
+};
 
+
+function wyslij_wiadomosc(){
+	const login = localStorage.getItem("login");
+	const pass = localStorage.getItem("password");
+	const log_z = localStorage.getItem("log_z");
+
+
+	if(login && pass && log_z){
+	fetch("https://cpp-b.onrender.com/wyslij_wiadomosc", {
+                method: "POST",
+                headers: {
+                      "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    log: login,
+                    pass: pass,
+					log_z: log_z
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+
+				document.getElementById("result").innerText = data.komunikat;
+				otworz_chat(log_z);
+				
+			})
+	}
+
+	
+	
+};
 
 
 
