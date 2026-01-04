@@ -145,6 +145,8 @@ function wyslij_wiadomosc(){
 	const login = localStorage.getItem("login");
 	const pass = localStorage.getItem("password");
 	const log_z = localStorage.getItem("log_z");
+	const wiadomosc = document.getElementById("wiadomosc").value;
+	document.getElementById("wiadomosc").value = "";
 
 
 	if(login && pass && log_z){
@@ -156,7 +158,8 @@ function wyslij_wiadomosc(){
                 body: JSON.stringify({
                     log: login,
                     pass: pass,
-					log_z: log_z
+					log_z: log_z,
+					wiadomosc: wiadomosc
                 })
             })
             .then(res => res.json())
