@@ -95,22 +95,25 @@ function otworz_chat(log_z){
 					const li = document.createElement("li");
 
 					const date = document.createElement("small");
-					date.textContent = " (" + w.data + ")";
+					date.textContent = formatDate(w.data);
 
 					
 					const user = document.createElement("strong");
-					user.textContent = w.user;
+					user.textContent = w.user + ": ";
 
-					const text = document.createTextNode(":\n" + w.wiadomosc);
+					const text = document.createTextNode(w.wiadomosc);
 
 					li.appendChild(date);
-					li.appendChild(user);
-					li.appendChild(text);
 					li.appendChild(document.createElement("br"));
+					li.appendChild(user);
+					li.appendChild(document.createElement("br"));
+					li.appendChild(text);
+					
 					
         			
 					
 					wiadomosci.appendChild(li);
+					wiadomosci.appendChild(document.createElement("br"));
 				 });
 
 	
@@ -124,6 +127,17 @@ function otworz_chat(log_z){
 
 	
 };
+
+
+function formatDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleString("pl-PL", {
+        day: "2-digit",
+        month: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+}
 
 
 
