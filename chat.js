@@ -64,3 +64,67 @@ const znajomi = document.getElementById("znajomi");
 
 	
 };
+
+
+function otworz_chat(log_z){
+	document.getElementById("wiadomosci").style.display = "block";
+	document.getElementById("wysylanie").style.display = "block";
+	localStorage.setItem("log_z", log_z);
+	const wiadomosci = document.getElementById("wiadomosci");
+
+
+
+
+	fetch("https://cpp-b.onrender.com/wyswietl_wiadomosci", {
+                method: "POST",
+                headers: {
+                      "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    log: localStorage.getItem("login"),
+                    pass: localStorage.getItem("password"),
+					log_z: log_z
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                
+				wiadomosci.innerHTML = "";
+				const lista_wiadomosci = data.lista_wiadomosci || [];
+				lista_wiadomosci.forEach(w => { 
+					const li = document.createElement("li");
+
+					const date = document.createElement("small");
+					date.textContent = " (" + w.data + ")";
+
+					
+					const user = document.createElement("strong");
+					user.textContent = w.user;
+
+					const text = document.createTextNode(":\n" + w.wiadomosc);
+
+					li.appendChild(date);
+					li.appendChild(user);
+					li.appendChild(text);
+					li.appendChild(document.createElement("br"));
+					
+        			
+					
+					wiadomosci.appendChild(li);
+				 });
+
+	
+        
+	})
+
+
+
+
+
+
+	
+};
+
+
+
+
