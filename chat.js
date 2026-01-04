@@ -10,10 +10,57 @@ window.onload = function() {
         const login = localStorage.getItem("login");
 		    const pass = localStorage.getItem("password");
 	    	if(login && pass){
-          document.getElementById("result").innerText = "Zalogowano jako: " + login;
+				document.getElementById("result").innerText = "Zalogowano jako: " + login;
+				wyswietl_znajomych();
+				
         }
         else{
           document.getElementById("result").innerText = "Zaloguj się, aby wyświetlić chat";
         }
    
  };
+
+
+
+
+function wyswietl_znajomych() {
+const znajomi = document.getElementById("znajomi");
+
+
+
+	  fetch("https://cpp-b.onrender.com/wyswietl_znajomych", {
+                method: "POST",
+                headers: {
+                      "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    log: localStorage.getItem("login"),
+                    pass: localStorage.getItem("password")
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                
+				znajomi.innerHTML = "";
+				const lista_znajomych = data.lista_znajomych || [];
+				lista_znajomych.forEach(znajomy => { 
+					const li = document.createElement("li");
+        			li.textContent = znajomy;
+					const btn = document.createElement("button");
+					btn.textContent = "Otwórz chat";
+					btn.onclick = () => otworz_Chat(znajomy);
+					btn.classList.add("btn-small", "btn-accept");
+
+
+					li.appendChild(btn);
+					znajomi.appendChild(li);
+				 });
+
+	
+        
+	})
+
+
+
+	
+};
