@@ -145,6 +145,12 @@ pre {
     margin-bottom: 12px;
 }
 
+#wiadomosci {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+
 #znajomi li {
     margin-bottom: 8px;
 }
