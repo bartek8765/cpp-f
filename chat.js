@@ -1,3 +1,5 @@
+let chatInterval = null;
+
 window.onload = function() {
         document.getElementById("status").innerText = "Łączenie z serwerem...";
         fetch("https://cpp-b.onrender.com/")
@@ -66,12 +68,10 @@ const znajomi = document.getElementById("znajomi");
 };
 
 
-function otworz_chat(log_z){
-	document.getElementById("wiadomosci").style.display = "block";
-	document.getElementById("wysylanie").style.display = "block";
-	document.getElementById("chat").style.display = "block";
-	localStorage.setItem("log_z", log_z);
-	const wiadomosci = document.getElementById("wiadomosci");
+function pobierz_wiadomosci(){
+
+const log_z = localStorage.getItem("log_z");
+const wiadomosci = document.getElementById("wiadomosci");
 
 
 
@@ -122,8 +122,34 @@ function otworz_chat(log_z){
 	})
 
 
+	const isAtBottom =wiadomosci.scrollTop + wiadomosci.clientHeight >= wiadomosci.scrollHeight - 10;
+
+if (isAtBottom) {
+    wiadomosci.scrollTo({
+        top: wiadomosci.scrollHeight,
+        behavior: "smooth"
+    });
+}
 
 
+
+	
+};
+
+
+
+
+function otworz_chat(log_z){
+	document.getElementById("wiadomosci").style.display = "block";
+	document.getElementById("wysylanie").style.display = "block";
+	document.getElementById("chat").style.display = "block";
+	localStorage.setItem("log_z", log_z);
+	
+
+	pobierz_wiadomosci();
+
+	if (chatInterval) clearInterval(chatInterval);
+    chatInterval = setInterval(pobierz_wiadomosci, 3000); // co 3 sekundy
 
 
 	
