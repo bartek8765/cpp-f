@@ -150,6 +150,20 @@ pre {
     overflow-y: auto;
 }
 
+#wiadomosci::-webkit-scrollbar-track {
+    background: #1e1e2f;
+    border-radius: 10px;
+}
+
+#wiadomosci::-webkit-scrollbar-thumb {
+    background: #5a67ff;
+    border-radius: 10px;
+}
+
+#wiadomosci::-webkit-scrollbar-thumb:hover {
+    background: #6f7cff;
+}
+
 
 #znajomi li {
     margin-bottom: 8px;
