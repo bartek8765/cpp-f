@@ -117,19 +117,15 @@ const isAtBottom = wiadomosci.scrollTop + wiadomosci.clientHeight >= wiadomosci.
 					
 				 });
 
-	
-        
-	})
-
-
-	
-
-if (isAtBottom) {
+	if (isAtBottom) {
     wiadomosci.scrollTo({
         top: wiadomosci.scrollHeight,
         behavior: "smooth"
     });
-}
+	}
+        
+	})
+
 
 
 
