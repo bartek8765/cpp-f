@@ -73,7 +73,7 @@ function pobierz_wiadomosci(){
 const log_z = localStorage.getItem("log_z");
 const wiadomosci = document.getElementById("wiadomosci");
 
-
+const isAtBottom = wiadomosci.scrollTop + wiadomosci.clientHeight >= wiadomosci.scrollHeight - 10;
 
 
 	fetch("https://cpp-b.onrender.com/wyswietl_wiadomosci", {
@@ -122,7 +122,7 @@ const wiadomosci = document.getElementById("wiadomosci");
 	})
 
 
-	const isAtBottom =wiadomosci.scrollTop + wiadomosci.clientHeight >= wiadomosci.scrollHeight - 10;
+	
 
 if (isAtBottom) {
     wiadomosci.scrollTo({
